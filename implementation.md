@@ -141,6 +141,6 @@ services:
 
 Após a criação do contâiner, crie um bucket para realizar os testes com o componente. Recomendamos que você tenha instalado em sua estação o [AWS CLI](https://aws.amazon.com/pt/cli/). Abaixo um exemplo de comando para criação de um bucket:
 
-```
-aws --endpoint-url=http://localhost:4566  --region=sa-east-1 s3 mb s3://[NOME DO BUCKET]
+```bash
+aws --endpoint-url=http://localhost:4566  --region=us-east-1 s3 mb s3://[NOME DO BUCKET]
 ```
