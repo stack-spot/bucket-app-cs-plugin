@@ -1,0 +1,29 @@
+name: bucket-app-cs-plugin
+description: Plug-in para instrumentar o AWS S3.
+types:
+- app
+inputs:
+- label: Region Endpoint
+  type: text
+  name: region_endpoint
+  default: "sa-east-1"
+
+displayName: Bucket
+
+picture: "plugin.png"
+
+category: backend, bucket
+
+compatibility:
+  - net5.0
+  - net6.0
+
+about: about.md
+
+usage: usage.md
+
+useCase: useCase.md
+
+implementation: implementation.md
+
+technologies: [".NET", "C#", "AWS S3"]
