@@ -125,7 +125,7 @@ public class Service
 * Para o funcionamento local você deve preencher a variável de ambiente `LOCALSTACK_CUSTOM_SERVICE_URL` com o valor da url do serviço. O valor padrão do localstack é http://localhost:4566.
 * Abaixo um exemplo de arquivo `docker-compose` com a criação do contâiner: 
 
-```
+```yaml
 version: '2.1'
 
 services:
