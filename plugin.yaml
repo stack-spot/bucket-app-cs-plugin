@@ -29,7 +29,7 @@ hooks:
       - search:
           string: "return services"
           insert-before:
-            value: "services.AddBucketS3(configuration);"
+            value: "services.AddBucketS3(configuration);\n"
           when:
             not-exists: "services.AddBucketS3(configuration);"
 #format
