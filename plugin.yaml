@@ -8,6 +8,37 @@ inputs:
   name: region_endpoint
   default: "sa-east-1"
 
+hooks:
+#package
+  - type: run
+    trigger: before-render
+    commands:
+      - dotnet add src/{{global_inputs.project_name}}.Application package StackSpot.Bucket.S3
+      - dotnet add src/{{global_inputs.project_name}}.Infrastructure package StackSpot.Bucket.S3
+#dependencyinjection
+  - type: edit
+    trigger: before-render
+    path: "src/{{project_name}}.Application/Common/StackSpot/DependencyInjection.cs"
+    changes:
+      - search:
+          string: "using"
+          insert-before:
+            value: "using StackSpot.Bucket.S3;"
+          when:
+            not-exists: "using StackSpot.Bucket.S3;"
+      - search:
+          string: "return services"
+          insert-before:
+            value: "services.AddBucketS3(configuration);"
+          when:
+            not-exists: "services.AddBucketS3(configuration);"
+#format
+  - type: run
+    trigger: after-render
+    working-dir: src/{{project_name}}.Application
+    commands:
+      -  dotnet dotnet-format --include-generated
+
 displayName: Bucket
 
 picture: "plugin.png"
